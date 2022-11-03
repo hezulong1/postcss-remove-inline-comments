@@ -1,7 +1,7 @@
 {
   "name": "postcss-remove-inline-comments",
   "description": "A plugin to remove inline CSS comments from compilation",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "hezulong1<h2108b@163.com>",
   "keywords": [
     "css",
@@ -10,7 +10,7 @@
     "postcss-plugin",
     "postcss-scss"
   ],
-  "main": "./dist/index.js",
+  "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "files": [
@@ -22,16 +22,16 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "require": "./dist/index.js",
+      "require": "./dist/index.cjs",
       "import": "./dist/index.mjs",
-      "default": "./dist/index.js"
+      "default": "./dist/index.cjs"
     }
   },
   "scripts": {
     "clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
-    "build": "tsup index.ts --format esm,cjs --dts",
+    "build": "unbuild",
     "test": "vitest",
-    "prepublishOnly": "npm run clean && npm run build",
+    "prepublishOnly": "npm run build",
     "release": "bumpp && npm publish",
     "lint": "eslint ."
   },
@@ -47,8 +47,8 @@
     "eslint": "^8.26.0",
     "postcss": "^8.4.18",
     "postcss-scss": "^4.0.5",
-    "tsup": "^6.3.0",
     "typescript": "^4.8.4",
+    "unbuild": "^0.9.4",
     "vitest": "^0.24.5"
   },
   "peerDependencies": {
