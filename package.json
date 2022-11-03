@@ -31,7 +31,7 @@
     "clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
     "build": "tsup index.ts --format esm,cjs --dts",
     "test": "vitest",
-    "prepublishOnly": "npm run clean && npm run build && npm run test",
+    "prepublishOnly": "npm run clean && npm run build",
     "release": "bumpp && npm publish",
     "lint": "eslint ."
   },
