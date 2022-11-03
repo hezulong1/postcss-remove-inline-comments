@@ -1,0 +1,67 @@
+{
+  "name": "postcss-remove-inline-comments",
+  "description": "A plugin to remove inline CSS comments from compilation",
+  "version": "0.0.1",
+  "author": "hezulong1<h2108b@163.com>",
+  "keywords": [
+    "css",
+    "comment",
+    "postcss",
+    "postcss-plugin",
+    "postcss-scss"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "clean": "node -e \"fs.rmSync('./dist', { recursive: true, force: true });\"",
+    "build": "tsup index.ts --format esm,cjs --dts",
+    "test": "vitest",
+    "prepublishOnly": "npm run clean && npm run build && npm run test",
+    "release": "bumpp && npm publish",
+    "lint": "eslint ."
+  },
+  "sideEffects": false,
+  "homepage": "https://github.com/hezulong1/postcss-remove-inline-comments",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hezulong1/postcss-remove-inline-comments.git"
+  },
+  "devDependencies": {
+    "@vividcat/eslint-config": "^3.0.1",
+    "bumpp": "^8.2.1",
+    "eslint": "^8.26.0",
+    "postcss": "^8.4.18",
+    "postcss-scss": "^4.0.5",
+    "tsup": "^6.3.0",
+    "typescript": "^4.8.4",
+    "vitest": "^0.24.5"
+  },
+  "peerDependencies": {
+    "postcss": "^8.4.18"
+  },
+  "optionalDependencies": {
+    "postcss-scss": "^4.0.5"
+  },
+  "engines": {
+    "node": "^12 || ^14 || >=16"
+  },
+  "license": "MIT",
+  "eslintConfig": {
+    "extends": "@vividcat"
+  }
+}
